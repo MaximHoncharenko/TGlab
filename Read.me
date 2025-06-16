@@ -1,0 +1,94 @@
+# Todolist API
+
+RESTful API для керування задачами (Tasks), побудований на Django та Django REST Framework.
+
+## Опис проекту
+
+Цей проект дозволяє створювати, переглядати, фільтрувати, оновлювати та видаляти задачі з різним статусом (pending, in-progress, completed).  
+Підтримує аутентифікацію користувачів та розширені можливості фільтрації та сортування.
+
+---
+
+## Технології
+
+- Python 3.10+
+- Django 5.2.3
+- Django REST Framework
+- PostgreSQL
+- django-filter
+
+---
+
+## Встановлення
+
+### Крок 1: Клонування репозиторію
+
+```bash
+git clone <url_твого_репозиторію>
+cd todolist
+Крок 2: Створення та активація віртуального середовища
+bash
+Копировать
+Редактировать
+python -m venv venv
+# Windows
+venv\Scripts\activate
+# Linux/MacOS
+source venv/bin/activate
+Крок 3: Встановлення залежностей
+bash
+Копировать
+Редактировать
+pip install -r requirements.txt
+Крок 4: Налаштування бази даних PostgreSQL
+Створити базу todolist_db
+
+Створити користувача admin з паролем admin (або онови у settings.py на свої параметри)
+
+Переконатися, що PostgreSQL працює на порті 5433 (за замовчуванням)
+
+Крок 5: Міграції
+bash
+Копировать
+Редактировать
+python manage.py migrate
+Крок 6: Запуск сервера
+bash
+Копировать
+Редактировать
+python manage.py runserver
+Використання API
+Базова адреса API: http://127.0.0.1:8000/api/
+
+Ендпоінти:
+/tasks/ — список задач, підтримує GET, POST, PUT, DELETE
+
+Підтримка фільтрів через query params:
+
+status — фільтрація за статусом (pending, in-progress, completed)
+
+due_date — фільтрація за датою виконання
+
+Сортування за полями due_date, created_at, status
+
+Тести
+Запуск тестів:
+
+bash
+Копировать
+Редактировать
+python manage.py test tasks
+Логи
+Middleware RequestLoggingMiddleware логуватиме всі HTTP запити в консоль.
+
+Налаштування
+Головні налаштування в todolist/settings.py:
+
+Параметри бази даних
+
+Секретний ключ Django
+
+DEBUG режим
+
+Автор
+Максим Гончаренко
